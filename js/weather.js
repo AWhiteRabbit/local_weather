@@ -14,12 +14,19 @@ $(".getWeather").click(function () {
                 var temperature = data.main.temp;
                 var temperatureMin = data.main.temp_min;
                 var temperatureMax = data.main.temp_max;
-                $(".temp").html("temperature "+temperature);
-                $(".temp").append("<span>Min "+temperatureMin+"</span>");
-                $(".temp").append("<span>Max "+temperatureMax+"</span>");
+                $(".location").prepend(data.name);
+                $(".weather").append("<img src="+data.weather[0].icon+" alt=icon>");
+                $(".temp").html("temperature "+Math.round(temperature)+"°");
+                $(".temp").append("<span>Min "+Math.round(temperatureMin)+"°</span>");
+                $(".temp").append("<span>Max "+Math.round(temperatureMax)+"°</span>");
+                console.log(name);
             })
         })
     } else {
         console.log("nope wut why?!?");
     }
 });
+
+$(".cf").click ( function(){
+    console.log("changed °");
+})
